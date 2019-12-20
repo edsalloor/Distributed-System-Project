@@ -1,0 +1,16 @@
+.primario{
+	margin-top: 4%;
+}
+
+.botones{
+	display: flex;
+	justify-content: center;
+}
+
+.btn{
+	margin-left: 2%;
+}
+
+.archivo{
+	margin-top: 5%;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Hola">
+    <meta name="author" content="Ramirez Salazar">
+    <title>Convertidor offline AWS</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/estilos.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="select" class="container primario">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 botones">
+          <button type="button" id="btnImagen" class="btn btn-primary">Im&aacute;gen</button>
+          <button type="button" id="btnAudio" class="btn btn-secondary">Audio</button>
+          <button type="button" id="btnVideo" class="btn btn-success">Video</button>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+      
+    </div>
+    <div class="container archivo" id="containerImagen" style="visibility: hidden;">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-2">Convertir Imagen</div>
+        <div class="col-md-4">
+          <div class="file-upload-wrapper">
+            <input type="file" id="input-file-max-fs" class="file-upload" data-max-file-size="2M" accept="image/*"/>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <button type="button" id="convertirImagen" class="btn btn-danger">Convertir</button>
+        </div>
+      </div>
+    </div>
+    <div class="container archivo" id="containerAudio" style="visibility: hidden;">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-2">Convertir Audio</div>
+        <div class="col-md-4">
+          <div class="file-upload-wrapper">
+            <input type="file" id="input-file-max-fs" class="file-upload" data-max-file-size="2M" accept="audio/*"/>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <button type="button" id="convertirAudio" class="btn btn-danger">Convertir</button>
+        </div>
+      </div>
+    </div>
+    <div class="container archivo" id="containerVideo" style="visibility: hidden;">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-2">Convertir Video</div>
+        <div class="col-md-4">
+          <div class="file-upload-wrapper">
+            <input type="file" id="input-file-max-fs" class="file-upload" data-max-file-size="2M" accept="video/*"/>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <button type="button" id="convertirVideo" class="btn btn-danger">Convertir</button>
+        </div>
+      </div>
+    </div>
+    <!-- <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+      </div>
+    </footer> -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
