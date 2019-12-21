@@ -1,5 +1,5 @@
 .primario{
-	margin-top: 4%;
+	margin-top: 7%;
 }
 
 .botones{
@@ -12,5 +12,17 @@
 }
 
 .archivo{
-	margin-top: 5%;
+	margin-top: 2%;
+	align-items: center;
+}
+
+.archivo > * {
+	display: block;
+	margin-top: 2%;
+}
+
+.titulo{
+	margin-top: 2%;
+	margin-bottom: 2%;
+	text-align: center;
 }
