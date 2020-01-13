@@ -11,8 +11,8 @@
     <link href="css/estilos.css" rel="stylesheet">
   </head>
   <body class="primario">
-  	<h1 class="titulo">CONVERTIDOR AWS</h1>
-  	<h3 class="titulo">Seleccione el tipo de archivo</h3>
+    <h1 class="titulo">CONVERTIDOR AWS</h1>
+    <h3 class="titulo">Seleccione el tipo de archivo</h3>
     <div id="select" class="container">
       <div class="row">
         <div class="col-md-4"></div>
@@ -25,73 +25,82 @@
       </div>
       
     </div>
-    <div class="container archivo" id="containerImagen" style="visibility: hidden;">
+    <div class="container archivo" id="containerImagen" align="center" style="display: none;">
       <div class="row">
         <div class="col-md-2">Cargar Imagen</div>
         <div class="col-md-4">
           <div class="file-upload-wrapper">
-            <input type="file" id="input-file-max-fs" class="file-upload" data-max-file-size="2M" accept="image/*"/>
+            <input type="file" id="inputImagen" class="file-upload" data-max-file-size="2M" accept="image/*"/>
           </div>
         </div>
       </div>
+      <img id="img" height="250" style="display: none;">
       <div class="row">
-        <div class="col-md-2">Seleccione el formato de conversión</div>
-        <div class="col-md-4">
-          	<select>
-  				<option value="volvo">JPEG</option>
-  				<option value="saab">PNG</option>
-  				<option value="saab">PNG</option>
-			</select>
-      	</div>
+        <div class="col-md">Seleccione el formato de conversión</div>
+        <div class="col-md">
+          <select>
+            <option value="jpeg">JPEG</option>
+            <option value="jpg">JPG</option>
+            <option value="png">PNG</option>
+          </select>
+        </div>
+        <div class="col-md">
+          <button type="button" id="convertirImagen" class="btn btn-danger">Convertir</button>
+        </div>
       </div>
-      <div class="col-md-4">
-	    <button type="button" id="convertirImagen" class="btn btn-danger">Convertir</button>
-	  </div>
-    <div class="container archivo" id="containerAudio" style="visibility: hidden;">
+      
+    </div>
+    <div class="container archivo" id="containerAudio" align="center" style="display: none;">
       <div class="row">
         <div class="col-md-2">Cargar Audio</div>
         <div class="col-md-4">
           <div class="file-upload-wrapper">
-            <input type="file" id="input-file-max-fs" class="file-upload" data-max-file-size="2M" accept="audio/*"/>
+            <input type="file" id="inputAudio" class="file-upload" data-max-file-size="2M" accept="audio/*"/>
           </div>
         </div>
       </div>
+      <audio id="aud" style="display: none;" controls>
+      </audio>
       <div class="row">
-        <div class="col-md-2">Seleccione el formato de conversión</div>
-        <div class="col-md-4">
-          	<select>
-  				<option value="volvo">MP3</option>
-  				<option value="saab">AAC</option>
-  				<option value="saab">OPUS</option>
-			</select>
-      	</div>
+        <div class="col-md">Seleccione el formato de conversión</div>
+        <div class="col-md">
+          <select>
+            <option value="volvo">MP3</option>
+            <option value="saab">AAC</option>
+            <option value="saab">OPUS</option>
+          </select>
+        </div>
+        <div class="col-md">
+          <button type="button" id="convertirAudio" class="btn btn-danger">Convertir</button>
+        </div>
       </div>
-      <div class="col-md-4">
-        <button type="button" id="convertirAudio" class="btn btn-danger">Convertir</button>
-      </div>
+      
     </div>
-    <div class="container archivo" id="containerVideo" style="visibility: hidden;">
+    <div class="container archivo" id="containerVideo" align="center" style="display: none;">
       <div class="row">
         <div class="col-md-2">Cargar Video</div>
         <div class="col-md-4">
           <div class="file-upload-wrapper">
-            <input type="file" id="input-file-max-fs" class="file-upload" data-max-file-size="2M" accept="video/*"/>
+            <input type="file" id="inputVideo" class="file-upload" data-max-file-size="2M" accept="video/*"/>
           </div>
         </div>
       </div>
+      <video id="vid" width="320" height="240" style="display: none;" controls>
+      </video>
       <div class="row">
-        <div class="col-md-2">Seleccione el formato de conversión</div>
-        <div class="col-md-4">
-          	<select>
-  				<option value="volvo">MP4</option>
-  				<option value="saab">AVI</option>
-  				<option value="saab">MKV</option>
-			</select>
-      	</div>
+        <div class="col-md">Seleccione el formato de conversión</div>
+        <div class="col-md">
+          <select>
+            <option value="volvo">MP4</option>
+            <option value="saab">AVI</option>
+            <option value="saab">MKV</option>
+          </select>
+        </div>
+        <div class="col-md">
+          <button type="button" id="convertirVideo" class="btn btn-danger">Convertir</button>
+        </div>
       </div>
-      <div class="col-md-4">
-        <button type="button" id="convertirVideo" class="btn btn-danger">Convertir</button>
-      </div>
+      
     </div>
     <!-- <footer class="py-5 bg-dark">
       <div class="container">
