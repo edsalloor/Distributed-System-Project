@@ -79,7 +79,7 @@ $(document).ready(function(){
         var jsonString= JSON.stringify(obj);
         //console.log(jsonString);
         $.ajax({
-            url: 'https://ncmh9e63m6.execute-api.us-east-2.amazonaws.com/beta',
+            url: 'https://ncmh9e63m6.execute-api.us-east-2.amazonaws.com/beta/convertimage',
             method: 'POST',
             dataType: "json",
             data: jsonString,
@@ -108,7 +108,7 @@ $(document).ready(function(){
         var jsonString= JSON.stringify(obj);
         console.log(jsonString);
         $.ajax({
-            url: 'https://ncmh9e63m6.execute-api.us-east-2.amazonaws.com/beta',
+            url: 'https://ncmh9e63m6.execute-api.us-east-2.amazonaws.com/beta/convertaudio',
             method: 'POST',
             dataType: "json",
             data: jsonString,
