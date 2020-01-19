@@ -74,8 +74,10 @@ $(document).ready(function(){
     $("#convertirImagen").click(function() {
         var obj = new Object();
         obj.img = document.getElementById("img").src.split(",")[1];
+        var formato = $("#selectImage :selected").val();
+        obj.dst_format = formato;
         var jsonString= JSON.stringify(obj);
-        // console.log(jsonString);
+        //console.log(jsonString);
         $.ajax({
             url: 'https://ncmh9e63m6.execute-api.us-east-2.amazonaws.com/beta',
             method: 'POST',
@@ -83,13 +85,18 @@ $(document).ready(function(){
             data: jsonString,
             contentType: false,
             processData: false,
-            success: function(data){
-                console.log("CORRECTO");                               
-                console.log(data);
+            success: function(data){                             
+                console.log(data["result"]);
+                var a = document.createElement("a");
+                a.href = "data:image/"+ formato +";base64," + data["result"];
+                a.download = "Image."+ formato; 
+                a.click();
             }
         }).fail(function(e){
             console.log("NO CORRECTO ?");  
             console.log(e.responseText);
+            var url = 'data:application/octet-stream,'+e.responseText;
+            window.open(url);
         });  
     });
 
