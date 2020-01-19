@@ -73,20 +73,23 @@ $(document).ready(function(){
 
     $("#convertirImagen").click(function() {
         var obj = new Object();
-        obj.img = document.getElementById("img").src;
+        obj.img = document.getElementById("img").src.split(",")[1];
         var jsonString= JSON.stringify(obj);
-        console.log(jsonString);
+        // console.log(jsonString);
         $.ajax({
-            url: 'https://p2ejye0m46.execute-api.us-east-2.amazonaws.com/beta',
+            url: 'https://ncmh9e63m6.execute-api.us-east-2.amazonaws.com/beta',
             method: 'POST',
+            dataType: "json",
             data: jsonString,
             contentType: false,
             processData: false,
-            success: function(data){                                  
+            success: function(data){
+                console.log("CORRECTO");                               
                 console.log(data);
             }
         }).fail(function(e){
-            console.log(data);
+            console.log("NO CORRECTO ?");  
+            console.log(e.responseText);
         });  
     });
 
