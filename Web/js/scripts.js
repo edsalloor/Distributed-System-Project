@@ -95,19 +95,66 @@ $(document).ready(function(){
         }).fail(function(e){
             console.log("NO CORRECTO ?");  
             console.log(e.responseText);
-            var url = 'data:application/octet-stream,'+e.responseText;
-            window.open(url);
+            // var url = 'data:application/octet-stream,'+e.responseText;
+            // window.open(url);
         });  
     });
 
     $("#convertirAudio").click(function() {
-        alert("Convertir audio");
+        var obj = new Object();
+        obj.aud = document.getElementById("aud").src.split(",")[1];
+        var formato = $("#selectAudio :selected").val();
+        obj.dst_format = formato;
+        var jsonString= JSON.stringify(obj);
+        console.log(jsonString);
+        $.ajax({
+            url: 'https://ncmh9e63m6.execute-api.us-east-2.amazonaws.com/beta',
+            method: 'POST',
+            dataType: "json",
+            data: jsonString,
+            contentType: false,
+            processData: false,
+            success: function(data){                             
+                console.log(data["result"]);
+                var a = document.createElement("a");
+                a.href = "data:audio/"+ formato +";base64," + data["result"];
+                a.download = "Audio."+ formato; 
+                a.click();
+            }
+        }).fail(function(e){
+            console.log("NO CORRECTO ?");  
+            console.log(e.responseText);
+            // var url = 'data:application/octet-stream,'+e.responseText;
+            // window.open(url);
+        });
     });
 
     $("#convertirVideo").click(function() {
         var obj = new Object();
-        obj.vid = document.getElementById("vid").src;
+        obj.vid = document.getElementById("vid").src.split(",")[1];
+        var formato = $("#selectVideo :selected").val();
+        obj.dst_format = formato;
         var jsonString= JSON.stringify(obj);
         console.log(jsonString);
+        $.ajax({
+            url: 'https://ncmh9e63m6.execute-api.us-east-2.amazonaws.com/beta',
+            method: 'POST',
+            dataType: "json",
+            data: jsonString,
+            contentType: false,
+            processData: false,
+            success: function(data){                             
+                console.log(data["result"]);
+                var a = document.createElement("a");
+                a.href = "data:video/"+ formato +";base64," + data["result"];
+                a.download = "Video."+ formato; 
+                a.click();
+            }
+        }).fail(function(e){
+            console.log("NO CORRECTO ?");  
+            console.log(e.responseText);
+            // var url = 'data:application/octet-stream,'+e.responseText;
+            // window.open(url);
+        });
     });
 })
