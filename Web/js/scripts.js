@@ -6,18 +6,28 @@ $(document).ready(function(){
         document.getElementById( 'containerImagen' ).style.display = 'block';
         document.getElementById( 'containerAudio' ).style.display = 'none';
         document.getElementById( 'containerVideo' ).style.display = 'none';
+        document.getElementById( 'containerTexto' ).style.display = 'none';
     });
 
     $("#btnAudio").click(function() {
         document.getElementById( 'containerImagen' ).style.display = 'none';
         document.getElementById( 'containerAudio' ).style.display = 'block';
         document.getElementById( 'containerVideo' ).style.display = 'none';
+        document.getElementById( 'containerTexto' ).style.display = 'none';
     });
 
-    $("#btnVideo").click(function() {
+    // $("#btnVideo").click(function() {
+    //     document.getElementById( 'containerImagen' ).style.display = 'none';
+    //     document.getElementById( 'containerAudio' ).style.display = 'none';
+    //     document.getElementById( 'containerVideo' ).style.display = 'block';
+
+    // });
+
+    $("#btnTexto").click(function() {
         document.getElementById( 'containerImagen' ).style.display = 'none';
         document.getElementById( 'containerAudio' ).style.display = 'none';
-        document.getElementById( 'containerVideo' ).style.display = 'block';
+        document.getElementById( 'containerVideo' ).style.display = 'none';
+        document.getElementById( 'containerTexto' ).style.display = 'block';
 
     });
 
@@ -66,9 +76,26 @@ $(document).ready(function(){
       
     }
 
+    function readFileText() {
+        if (this.files && this.files[0]) {
+        
+            var FR= new FileReader();
+        
+            FR.addEventListener("load", function(e) {
+                document.getElementById("txt").src = e.target.result;
+                document.getElementById("txt").style.display = 'block';
+            }); 
+            
+            FR.readAsDataURL( this.files[0] );
+        }
+      
+    }
+
+
     document.getElementById("inputImagen").addEventListener("change", readFileImagen);
     document.getElementById("inputVideo").addEventListener("change", readFileVideo);
     document.getElementById("inputAudio").addEventListener("change", readFileAudio);
+    document.getElementById("inputText").addEventListener("change", readFileText);
 
 
     $("#convertirImagen").click(function() {
@@ -148,6 +175,35 @@ $(document).ready(function(){
                 var a = document.createElement("a");
                 a.href = "data:video/"+ formato +";base64," + data["result"];
                 a.download = "Video."+ formato; 
+                a.click();
+            }
+        }).fail(function(e){
+            console.log("NO CORRECTO ?");  
+            console.log(e.responseText);
+            // var url = 'data:application/octet-stream,'+e.responseText;
+            // window.open(url);
+        });
+    });
+
+    $("#convertirTexto").click(function() {
+        var obj = new Object();
+        obj.text_file = document.getElementById("txt").src.split(",")[1];
+        var formato = $("#selectTexto :selected").val();
+        obj.dst_format = formato;
+        var jsonString= JSON.stringify(obj);
+        console.log(jsonString);
+        $.ajax({
+            url: 'https://ncmh9e63m6.execute-api.us-east-2.amazonaws.com/beta/converttextfile',
+            method: 'POST',
+            dataType: "json",
+            data: jsonString,
+            contentType: false,
+            processData: false,
+            success: function(data){                             
+                console.log(data["result"]);
+                var a = document.createElement("a");
+                a.href = "data:text/"+ formato +";base64," + data["result"];
+                a.download = "Texto."+ formato; 
                 a.click();
             }
         }).fail(function(e){

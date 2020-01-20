@@ -19,7 +19,8 @@
         <div class="col-md-4 botones">
           <button type="button" id="btnImagen" class="btn btn-primary">Imagen</button>
           <button type="button" id="btnAudio" class="btn btn-secondary">Audio</button>
-          <button type="button" id="btnVideo" class="btn btn-success">Video</button>
+          <!-- <button type="button" id="btnVideo" class="btn btn-success">Video</button> -->
+          <button type="button" id="btnTexto" class="btn btn-dark">Texto</button>
         </div>
         <div class="col-md-4"></div>
       </div>
@@ -102,6 +103,32 @@
       </div>
       
     </div>
+    <div class="container archivo" id="containerTexto" align="center" style="display: none;">
+      <div class="row">
+        <div class="col-md-2">Cargar Texto</div>
+        <div class="col-md-4">
+          <div class="file-upload-wrapper">
+            <input type="file" id="inputText" class="file-upload" data-max-file-size="2M" accept="text/*"/>
+          </div>
+        </div>
+      </div>
+      <p id="txt"/>
+      <div class="row">
+        <div class="col-md">Seleccione el formato de conversión</div>
+        <div class="col-md">
+          <select id="selectTexto">
+            <option value="TXT">TXT</option>
+            <option value="LOG">LOG</option>
+            <option value="">PLAIN</option>
+          </select>
+        </div>
+        <div class="col-md">
+          <button type="button" id="convertirTexto" class="btn btn-danger">Convertir</button>
+        </div>
+      </div>
+      
+    </div>
+
     <!-- <footer class="py-5 bg-dark">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
