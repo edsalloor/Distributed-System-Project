@@ -16,12 +16,12 @@ $(document).ready(function(){
         document.getElementById( 'containerTexto' ).style.display = 'none';
     });
 
-    // $("#btnVideo").click(function() {
-    //     document.getElementById( 'containerImagen' ).style.display = 'none';
-    //     document.getElementById( 'containerAudio' ).style.display = 'none';
-    //     document.getElementById( 'containerVideo' ).style.display = 'block';
-
-    // });
+    $("#btnVideo").click(function() {
+        document.getElementById( 'containerImagen' ).style.display = 'none';
+        document.getElementById( 'containerAudio' ).style.display = 'none';
+        document.getElementById( 'containerVideo' ).style.display = 'block';
+        document.getElementById( 'containerTexto' ).style.display = 'none';
+    });
 
     $("#btnTexto").click(function() {
         document.getElementById( 'containerImagen' ).style.display = 'none';
@@ -164,7 +164,7 @@ $(document).ready(function(){
         var jsonString= JSON.stringify(obj);
         console.log(jsonString);
         $.ajax({
-            url: 'https://ncmh9e63m6.execute-api.us-east-2.amazonaws.com/beta',
+            url: 'https://ncmh9e63m6.execute-api.us-east-2.amazonaws.com/beta/convertvideo',
             method: 'POST',
             dataType: "json",
             data: jsonString,
