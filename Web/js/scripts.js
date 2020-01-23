@@ -28,7 +28,7 @@ $(document).ready(function(){
         document.getElementById( 'containerAudio' ).style.display = 'none';
         document.getElementById( 'containerVideo' ).style.display = 'none';
         document.getElementById( 'containerTexto' ).style.display = 'block';
-
+        
     });
 
     function readFileImagen() {
@@ -104,7 +104,8 @@ $(document).ready(function(){
         var formato = $("#selectImage :selected").val();
         obj.dst_format = formato;
         var jsonString= JSON.stringify(obj);
-        //console.log(jsonString);
+        console.log(jsonString);
+        console.time("Request");
         $.ajax({
             url: 'https://ncmh9e63m6.execute-api.us-east-2.amazonaws.com/beta/convertimage',
             method: 'POST',
@@ -112,8 +113,9 @@ $(document).ready(function(){
             data: jsonString,
             contentType: false,
             processData: false,
-            success: function(data){                             
-                console.log(data["result"]);
+            success: function(data){
+                console.timeEnd("Request");                        
+                //console.log(data["result"]);
                 var a = document.createElement("a");
                 a.href = "data:image/"+ formato +";base64," + data["result"];
                 a.download = "Image."+ formato; 
@@ -134,6 +136,7 @@ $(document).ready(function(){
         obj.dst_format = formato;
         var jsonString= JSON.stringify(obj);
         console.log(jsonString);
+        console.time("Request");
         $.ajax({
             url: 'https://ncmh9e63m6.execute-api.us-east-2.amazonaws.com/beta/convertaudio',
             method: 'POST',
@@ -141,8 +144,9 @@ $(document).ready(function(){
             data: jsonString,
             contentType: false,
             processData: false,
-            success: function(data){                             
-                console.log(data["result"]);
+            success: function(data){ 
+                console.timeEnd("Request");                            
+                //console.log(data["result"]);
                 var a = document.createElement("a");
                 a.href = "data:audio/"+ formato +";base64," + data["result"];
                 a.download = "Audio."+ formato; 
@@ -163,6 +167,7 @@ $(document).ready(function(){
         obj.dst_format = formato;
         var jsonString= JSON.stringify(obj);
         console.log(jsonString);
+        console.time("Request");
         $.ajax({
             url: 'https://ncmh9e63m6.execute-api.us-east-2.amazonaws.com/beta/convertvideo',
             method: 'POST',
@@ -170,8 +175,9 @@ $(document).ready(function(){
             data: jsonString,
             contentType: false,
             processData: false,
-            success: function(data){                             
-                console.log(data["result"]);
+            success: function(data){ 
+                console.timeEnd("Request");                            
+                //console.log(data["result"]);
                 var a = document.createElement("a");
                 a.href = "data:video/"+ formato +";base64," + data["result"];
                 a.download = "Video."+ formato; 
